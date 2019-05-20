@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Мастер-классы</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/modal.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="app">
+  <!-- Navbar -->
+  <div class="font-small pt-2 container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 col-xs-3 col-lg-1 mr-5">
+          <img src="img/logo.png">
+        </div>
+        <div class="col-lg-6 col-xs-6 col-md-6 mb-md-0">
+          <p>
+            Областное государственное бюджетное профессиональное образовательное учреждение «Северский промышленный колледж»
+            <br>
+            Свидетельство о государственной аккредитации № 723 от 20 января 2015 г.
+            <br>
+            Лицензия № 1713 от 8 февраля 2016 г.
+          </p>
+        </div>
+        <div class="m-1 text-right col-md-2 col-xs-3 col-lg-4">
+            <button class="btn-sm btn-primary text-right" id="show-modal" @click="showModalOrder = true">Заказать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar maincolor navbar-expand-lg navbar-dark animated fadeIn">
+    <div class="container">
+
+      <!-- search -->
+      <form id="demo-b">
+        <input class="mr-2" type="search">
+      </form>
+
+
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto text-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Бесплатные мероприятия
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank">Ближайшие курсы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank">Расписание занятий</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank">Контакты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank">Фото</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank">ЧАВО</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank">Преподаватели</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown nav-link">
+              <a class="dropdown-toggle text-white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Личный кабинет
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" id="show-modal" @click="showModalLogin = true">Вход</a>
+                <a class="dropdown-item" id="show-modal" @click="showModalReg = true">Регистрация</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons justify-content-center">
+          <li class="nav-item">
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!--Main-->
+  <main>
+    <modal v-if="showModalLogin" @close="showModalLogin = false">
+      <h3 slot="header">Вход</h3>
+      <div slot="body">
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-12 my-auto">
+            <div class="md-form">
+              <input name="name" type="text" id="form1" class="form-control">
+              <label for="form1">Логин</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12 my-auto">
+          <div class="md-form">
+            <input  type="password" name="password" id="form2" class="form-control" ref="password">
+            <label for="form2">Пароль</label>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div slot="footer" class="modal-footer">
+        <div class="col-12 text-center">
+          <button class="btn-sm col-12 btn-primary" type="Submit">Вход</button>
+          <span class="badge col-12 badge-primary"><a id="show-modal" @click="showModalFReg = true">Забыли пароль?</a></span>
+        </div>
+      </div>
+    </modal>
+
+    <main>
+      <modal v-if="showModalFReg" @close="showModalFReg = false">
+        <h3 slot="header">Восстановление пароля</h3>
+        <div slot="body">
+          <div class="container">
+          <div class="row">
+            <div class="col-sm-12 my-auto">
+              <div class="md-form">
+                <input name="name" type="email" id="form11" class="form-control">
+                <label for="form11">Введите почту</label>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div slot="footer" class="modal-footer">
+          <div class="col-12 text-center">
+            <button class="btn-sm col-12 btn-primary" type="Submit">Отправить</button>
+          </div>
+        </div>
+      </modal>
+
+    <modal v-if="showModalReg" @close="showModalReg = false">
+      <h3 slot="header">Регистрация</h3>
+      <div slot="body">
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-12 my-auto">
+            <div class="md-form">
+              <input name="name" type="text" id="form1" class="form-control">
+              <label for="form1">Логин</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12 my-auto">
+          <div class="md-form">
+            <input  type="password" name="password" id="form2" class="form-control" ref="password">
+            <label for="form2">Пароль</label>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 my-auto">
+            <div class="md-form">
+              <input  type="password" name="password" id="form3" class="form-control" ref="password">
+              <label for="form3">Повторно пароль</label>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 my-auto">
+              <div class="md-form">
+                <input  type="email" name="email" id="form4" class="form-control">
+                <label for="form4">Почта</label>
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div slot="footer" class="modal-footer">
+        <div class="col-12 text-center">
+          <button class="btn-sm col-12 btn-primary" type="Submit">Регистрация</button>
+        </div>
+      </div>
+    </modal>
+
+    <modal v-if="showModalOrder" @close="showModalOrder = false">
+      <h3 slot="header">Заказать звонок</h3>
+      <div slot="body">
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-12 my-auto">
+            <div class="md-form">
+              <input name="name" type="text" id="form1" class="form-control">
+              <label for="form1">Фамилия</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 my-auto">
+            <div class="md-form">
+              <input name="name" type="text" id="form2" class="form-control">
+              <label for="form2">Имя</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 my-auto">
+            <div class="md-form">
+              <input name="name" type="text" id="form3" class="form-control">
+              <label for="form3">Отчество</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 my-auto">
+            <div class="md-form">
+              <input name="name" type="text" id="form4" class="form-control">
+              <label for="form4">Телефон</label>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div slot="footer" class="modal-footer">
+        <div class="col-12 text-center">
+          <button class="btn-sm col-12 btn-primary" type="Submit">заказать</button>
+        </div>
+      </div>
+    </modal>
+  </div>
+
+    <div class="container" id="show">
+ 
+      <section class="text-center">
+
+          <div class="row">
+
+              <div class="col-lg-4 col-md-12 mb-3 hoveffilblu animated zoomIn">
+
+                  
+
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-3 hoveffilblu animated zoomIn">
+
+                  
+
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-3 hoveffilblu animated zoomIn">
+
+                  
+
+              </div>
+
+          </div>
+
+          <div class="row">
+
+              <div class="col-md-6 mb-3 hoveffilblu animated zoomIn">
+
+                                <!--Accordion wrapper-->
+              <div class="accordion md-accordion accordion-3 z-depth-1-half" id="accordionEx194" role="tablist"
+              aria-multiselectable="true">
+
+              <ul class="list-unstyled d-flex justify-content-center pt-5">
+                <li><i class="fas fa-star mr-3 fa-2x" aria-hidden="true"></i></li>
+              </ul>
+
+              <h2 class="text-center text-uppercase py-4 px-3">Мастер-классы</h2>
+
+              <hr class="mb-0">
+
+              <!-- Accordion card -->
+              <div class="card">
+
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="heading7">
+                  <a data-toggle="collapse" data-parent="#accordionEx194" href="#collapse7" aria-expanded="true"
+                    aria-controls="collapse7">
+                    <h3 class="mb-0">
+                      Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                    </h3>
+                  </a>
+                </div>
+
+                <!-- Card body -->
+                <div id="collapse7" class="collapse " role="tabpanel" aria-labelledby="heading7" data-parent="#accordionEx194">
+                  <div class="card-body pt-0">
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute,
+                      non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                      3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                      shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                      sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                      accusamus labore sustainable VHS.</p>
+                      <button class="btn-sm btn-primary">Записаться</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Accordion card -->
+
+              <!-- Accordion card -->
+              <div class="card">
+
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="heading8">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx194" href="#collapse8" aria-expanded="false"
+                    aria-controls="collapse8">
+                    <h3 class="mb-0">
+                      Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                    </h3>
+                  </a>
+                </div>
+
+                <!-- Card body -->
+                <div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="heading8" data-parent="#accordionEx194">
+                  <div class="card-body pt-0">
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute,
+                      non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                      3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                      shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                      sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                      accusamus labore sustainable VHS.</p>
+                      <button class="btn-sm btn-primary">Записаться</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Accordion card -->
+
+              <!-- Accordion card -->
+              <div class="card">
+
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="heading9">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx194" href="#collapse9" aria-expanded="false"
+                    aria-controls="collapse9">
+                    <h3 class="mb-0">
+                      Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                    </h3>
+                  </a>
+                </div>
+
+                <!-- Card body -->
+                <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9" data-parent="#accordionEx194">
+                  <div class="card-body pt-0">
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute,
+                      non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                      3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                      shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                      sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                      accusamus labore sustainable VHS.</p>
+                      <button class="btn-sm btn-primary">Записаться</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Accordion card -->
+              </div>
+              <!--/.Accordion wrapper-->
+
+              </div>
+
+              <div class="col-md-6 mb-3 hoveffilblu animated zoomIn">
+                                  <!--Accordion wrapper-->
+                <div class="accordion md-accordion accordion-3 z-depth-1-half" id="accordionEx194" role="tablist"
+                aria-multiselectable="true">
+
+                <ul class="list-unstyled d-flex justify-content-center pt-5">
+                  <li><i class="far fa-star fa-2x" aria-hidden="true"></i></li>
+                </ul>
+
+                <h2 class="text-center text-uppercase py-4 px-3">Мастер-классы</h2>
+
+                <hr class="mb-0">
+
+                <!-- Accordion card -->
+                <div class="card">
+
+                  <!-- Card header -->
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="heading11">
+                  <a class="collapsed" data-toggle="collapse" href="#collapse11" aria-expanded="false"
+                    aria-controls="collapse11">
+                    <h3 class="mb-0">
+                      Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                    </h3>
+                  </a>
+                </div>
+
+                <!-- Card body -->
+                <div id="collapse11" class="collapse" role="tabpanel" aria-labelledby="heading11">
+                  <div class="card-body pt-0">
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute,
+                      non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                      3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                      shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                      sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                      accusamus labore sustainable VHS.</p>
+                      <button class="btn-sm btn-primary">Записаться</button>
+                  </div>
+                </div>
+                </div>
+
+                <!-- Accordion card -->
+                <div class="card">
+
+                  <!-- Card header -->
+                  <div class="card-header" role="tab" id="heading12">
+                    <a class="collapsed" data-toggle="collapse" href="#collapse12" aria-expanded="false"
+                      aria-controls="collapse12">
+                      <h3 class="mb-0">
+                        Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                      </h3>
+                    </a>
+                  </div>
+
+                  <!-- Card body -->
+                  <div id="collapse12" class="collapse" role="tabpanel" aria-labelledby="heading12">
+                    <div class="card-body pt-0">
+                      <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                        wolf moon officia aute,
+                        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                        3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                        shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                        accusamus labore sustainable VHS.</p>
+                        <button class="btn-sm btn-primary">Записаться</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Accordion card -->
+
+                <!-- Accordion card -->
+                <div class="card">
+
+                  <!-- Card header -->
+                  <div class="card-header" role="tab" id="heading13">
+                    <a class="collapsed" data-toggle="collapse" href="#collapse13" aria-expanded="false"
+                      aria-controls="collapse13">
+                      <h3 class="mb-0">
+                        Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                      </h3>
+                    </a>
+                  </div>
+
+                  <!-- Card body -->
+                  <div id="collapse13" class="collapse" role="tabpanel" aria-labelledby="heading13">
+                    <div class="card-body pt-0">
+                      <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                        wolf moon officia aute,
+                        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                        3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                        shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                        accusamus labore sustainable VHS.</p>
+                        <button class="btn-sm btn-primary">Записаться</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Accordion card -->
+                </div>
+                <!--/.Accordion wrapper-->
+              </div>
+
+              <div class="col-md-6 mb-3 hoveffilblu animated zoomIn">
+                              <!--Accordion wrapper-->
+              <div class="accordion md-accordion accordion-3 z-depth-1-half" id="accordionEx194" role="tablist"
+              aria-multiselectable="true">
+
+              <ul class="list-unstyled d-flex justify-content-center pt-5">
+              <li><i class="far fa-star fa-2x" aria-hidden="true"></i></li>
+              </ul>
+
+              <h2 class="text-center text-uppercase py-4 px-3">Мастер-классы</h2>
+
+              <hr class="mb-0">
+
+              <!-- Accordion card -->
+              <div class="card">
+
+              <!-- Card header -->
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="heading21">
+              <a class="collapsed" data-toggle="collapse" href="#collapse21" aria-expanded="false"
+                aria-controls="collapse21">
+                <h3 class="mb-0">
+                  Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                </h3>
+              </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapse21" class="collapse" role="tabpanel" aria-labelledby="heading21">
+              <div class="card-body pt-0">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                  3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                  sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                  accusamus labore sustainable VHS.</p>
+                  <button class="btn-sm btn-primary">Записаться</button>
+              </div>
+              </div>
+              </div>
+
+              <!-- Accordion card -->
+              <div class="card">
+
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="heading22">
+                <a class="collapsed" data-toggle="collapse" href="#collapse22" aria-expanded="false"
+                  aria-controls="collapse22">
+                  <h3 class="mb-0">
+                    Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                  </h3>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapse22" class="collapse" role="tabpanel" aria-labelledby="heading22">
+                <div class="card-body pt-0">
+                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute,
+                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                    3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.</p>
+                    <button class="btn-sm btn-primary">Записаться</button>
+                </div>
+              </div>
+              </div>
+              <!-- Accordion card -->
+
+              <!-- Accordion card -->
+              <div class="card">
+
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="heading23">
+                <a class="collapsed" data-toggle="collapse" href="#collapse23" aria-expanded="false"
+                  aria-controls="collapse23">
+                  <h3 class="mb-0">
+                    Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                  </h3>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapse23" class="collapse" role="tabpanel" aria-labelledby="heading23">
+                <div class="card-body pt-0">
+                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute,
+                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                    3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.</p>
+                    <button class="btn-sm btn-primary">Записаться</button>
+                </div>
+              </div>
+              </div>
+              <!-- Accordion card -->
+              </div>
+              <!--/.Accordion wrapper-->
+              </div>
+
+              <div class="col-md-6 mb-3 hoveffilblu animated zoomIn">
+                              <!--Accordion wrapper-->
+              <div class="accordion md-accordion accordion-3 z-depth-1-half" id="accordionEx194" role="tablist"
+              aria-multiselectable="true">
+
+              <ul class="list-unstyled d-flex justify-content-center pt-5">
+              <li><i class="far fa-star fa-2x" aria-hidden="true"></i></li>
+              </ul>
+
+              <h2 class="text-center text-uppercase py-4 px-3">Мастер-классы</h2>
+
+              <hr class="mb-0">
+
+              <!-- Accordion card -->
+              <div class="card">
+
+              <!-- Card header -->
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="heading31">
+              <a class="collapsed" data-toggle="collapse" href="#collapse31" aria-expanded="false"
+                aria-controls="collapse31">
+                <h3 class="mb-0">
+                  Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                </h3>
+              </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapse31" class="collapse" role="tabpanel" aria-labelledby="heading31">
+              <div class="card-body pt-0">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                  3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                  sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                  accusamus labore sustainable VHS.</p>
+                  <button class="btn-sm btn-primary">Записаться</button>
+              </div>
+              </div>
+              </div>
+
+              <!-- Accordion card -->
+              <div class="card">
+
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="heading32">
+                <a class="collapsed" data-toggle="collapse" href="#collapse32" aria-expanded="false"
+                  aria-controls="collapse32">
+                  <h3 class="mb-0">
+                    Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                  </h3>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapse32" class="collapse" role="tabpanel" aria-labelledby="heading32">
+                <div class="card-body pt-0">
+                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute,
+                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                    3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.</p>
+                    <button class="btn-sm btn-primary">Записаться</button>
+                </div>
+              </div>
+              </div>
+              <!-- Accordion card -->
+
+              <!-- Accordion card -->
+              <div class="card">
+
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="heading33">
+                <a class="collapsed" data-toggle="collapse" href="#collapse33" aria-expanded="false"
+                  aria-controls="collapse33">
+                  <h3 class="mb-0">
+                    Мастер-класс <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+                  </h3>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapse33" class="collapse" role="tabpanel" aria-labelledby="heading33">
+                <div class="card-body pt-0">
+                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute,
+                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                    3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.</p>
+                    <button class="btn-sm btn-primary">Записаться</button>
+                </div>
+              </div>
+              </div>
+              <!-- Accordion card -->
+              </div>
+              <!--/.Accordion wrapper-->
+              </div>
+
+          </div>
+      </section>
+    </div>
+  </main>
+  <!--Main-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 maincolor">
+
+    <div class="pt-4">
+      <div class="container text-center text-md-left">
+        <div class="row">
+          <!--<div class="col-md-2">
+            <img src="img/logo.png" alt="">
+          </div>-->
+          <div class="col-md-5 mt-md-0 mt-3">
+            <p>
+              Областное государственное бюджетное профессиональное образовательное учреждение «Северский промышленный колледж»
+              Свидетельство о государственной аккредитации № 723 от 20 января 2015 г.
+              Лицензия № 1713 от 8 февраля 2016 г.
+            </p>
+            <div>
+
+              <!-- Facebook -->
+			<a>
+                <i class="fab fa-facebook-f fa-lg m-2 fa-2x text-white"> </i>
+              </a>
+              <!-- Vk -->
+              <a class="">
+                <i class="fab fa-vk fa-lg m-2 fa-2x text-white"> </i>
+              </a>
+              <!-- Twitter-->
+              <a class="">
+                <i class="fab fa-twitter fa-lg m-2 fa-2x text-white"> </i>
+              </a>
+              <!--Youtube -->
+              <a class="">
+                <i class="fab fa-youtube fa-lg m-2 fa-2x text-white"> </i>
+              </a>
+              <!--Instagram-->
+              <a class="">
+                <i class="fab fa-instagram fa-lg m-2 fa-2x text-white"> </i>
+              </a>
+            </div>
+
+          </div>
+
+          <hr class="clearfix w-100 d-md-none pb-3">
+          <div class="col-md-7 mb-md-0 mb-3 text-right">
+            <p>
+              Россия, 636036, г. Северск Томской области
+            </br>
+              ул. Крупской, 17, каб. 212
+            </br>
+              т. (3823) 780-311
+            </br>
+              факс (3823) 780-304
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/.Footer-->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+  </script>
+  <script type="text/javascript" src="js/modal.js"></script>
+  <script type="text/x-template" id="modal-template">
+    <transition name="modal">
+      <div class="modal-mask">
+        <div class="modal-wrapper">
+          <div class="modal-container">
+  
+            <div class="modal-header">
+              <slot name="header">
+                default header
+              </slot>
+              <a class="modal-default-button" @click="$emit('close')">
+                <i class="fas fa-2x text-primary fa-times"></i>
+              </a>
+            </div>
+  
+            <div class="modal-body">
+              <slot name="body">
+                default body
+              </slot>
+            </div>
+  
+
+              <slot name="footer">
+                
+              </slot>
+
+          </div>
+        </div>
+      </div>
+    </transition>
+  </script>
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+<script>
+/*$(function() {
+    $("a").each(function(b) {
+        if (this.title) {
+            var c = this.title;
+            var x = 0;
+			var y = 35;
+            $(this).mouseover(function(d) {
+                this.title = "";
+                $("body").append('<div id="tooltip">' + c + "</div>");
+                $("#tooltip").css({
+                    left: (d.pageX + x) + "px",
+                    top: (d.pageY + y) + "px",
+                    opacity: "0.8"
+                }).show(300)
+            }).mouseout(function() {
+                this.title = c;
+                $("#tooltip").remove()
+            }).mousemove(function(d) {
+                $("#tooltip").css({
+                    left: (d.pageX + x) + "px",
+                    top: (d.pageY + y) + "px"
+                })
+            })
+        }
+    })
+    });*/
+</script>
+</body>
+
+</html>
