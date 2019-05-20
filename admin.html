@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Мастер-классы</title>
+  <title>Личный кабинет</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
           </p>
         </div>
         <div class="m-1 text-right col-md-2 col-xs-3 col-lg-4">
-            <button class="btn-sm btn-primary text-right" id="show-modal" @click="showModalOrder = true">Заказать</button>
+            <button class="btn btn-sm btn-primary text-right" id="show-modal" @click="showModalOrder = true">Заказать</button>
         </div>
       </div>
     </div>
@@ -257,43 +257,21 @@
  
       <section class="text-center">
 
-          <div class="row">
-
-              <div class="col-lg-4 col-md-12 mb-3 hoveffilblu animated zoomIn">
-
-                  
-
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-3 hoveffilblu animated zoomIn">
-
-                  
-
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-3 hoveffilblu animated zoomIn">
-
-                  
-
-              </div>
-
-          </div>
-
-          <div class="row">
+          <div class="row mt-4">
 
               <div class="col-md-6 mb-3 hoveffilblu animated zoomIn">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                    aria-controls="pills-home" aria-selected="true">Профиль</a>
+                    aria-controls="pills-home" aria-selected="true">Профиль<i class="far ml-2 fa-user"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                    aria-controls="pills-profile" aria-selected="false">Настройки</a>
+                    aria-controls="pills-profile" aria-selected="false">Настройки<i class="fas ml-2 fa-cog"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                    aria-controls="pills-contact" aria-selected="false">Курсы</a>
+                    aria-controls="pills-contact" aria-selected="false">Курсы<i class="far ml-2 fa-bookmark"></i></a>
                 </li>
                 </ul>
                 <div class="tab-content pt-2 pl-1" id="pills-tabContent">
@@ -313,22 +291,38 @@
                             </div>
                         </div>
 
-                        <div class="card mt-4" style="width: 300px;">
+                        <div class="card mt-4" style="width: 300px; max-height: 500px; overflow-y: auto;">
                             <div class="card-body">
                                 <h4 class="card-title">История курсов<i class="far fa-clock ml-2"></i></h4>
                                 <ul class="list-group">
-                                    <li class="list-group-item text-primary"><a>Название курса</a></li>
-                                    <li class="list-group-item text-primary"><a>Название курса</a></li>
-                                    <li class="list-group-item text-primary"><a>Название курса</a></li>
-                                    <li class="list-group-item text-primary"><a>Название курса</a></li>
-                                    <li class="list-group-item text-primary"><a>Название курса</a></li>
+                                    <li class="list-group-item">
+                                      <a class="text-primary">Название курса</a>
+                                    </br>
+                                      № Группы: 122
+                                    </br>
+                                    20.05.2019 / 29.05.2019
+                                    </li>
+                                    <li class="list-group-item">
+                                      <a class="text-primary">Название курса</a>
+                                    </br>
+                                      № Группы: 122
+                                    </br>
+                                      20.05.2019 / 29.05.2019
+                                    </li>
+                                    <li class="list-group-item">
+                                      <a class="text-primary">Название курса</a>
+                                    </br>
+                                      № Группы: 122
+                                    </br>
+                                      20.05.2019 / 29.05.2019
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                 </div>
 
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <form style="width: 400px;">
+                        <form style="width: 350px;">
                                 <div class="form-row">
 
                                   <div class="form-group col-md-6">
@@ -370,7 +364,7 @@
                                     <input type="text" class="form-control" id="" placeholder="Город">
                                   </div>
                                   <div class="form-group col-md-6">
-                                        <label for="inputCity">Изменить фотографию</label>
+                                        <label for="inputCity">Фотография</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="customFileLang" lang="ru">
                                             <label class="custom-file-label" for="customFileLang"></label>
@@ -400,7 +394,7 @@
                             </div>
                             <div class="card-footer bg-transparent border-primary">
                                     <button type="submit" class="btn btn-danger btn-sm">Отменить</button>
-                                    <button type="submit" class="btn btn-primary btn-sm">Заказать</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">Оплатить</button>
                             </div>
                         </div>
 
@@ -414,7 +408,7 @@
                             </div>
                             <div class="card-footer bg-transparent border-primary">
                                 <button type="submit" class="btn btn-danger btn-sm">Отменить</button>
-                                <button type="submit" class="btn btn-primary btn-sm">Заказать</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Оплатить</button>
                             </div>
                         </div>
 
@@ -428,7 +422,7 @@
                             </div>
                             <div class="card-footer bg-transparent border-primary">
                                 <button type="submit" class="btn btn-danger btn-sm">Отменить</button>
-                                <button type="submit" class="btn btn-primary btn-sm">Заказать</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Оплатить</button>
                             </div>
                         </div>
                 </div>
@@ -437,13 +431,40 @@
               </div>
 
               <div class="col-md-6 mb-3 hoveffilblu animated zoomIn">
-                123
-              </div>
+                <div class="card border-primary m-3">
+                  <div class="card-header bg-transparent border-primary bg-primary text-white">Новости<i class="fas ml-2 fa-newspaper"></i></div>
+                  <div class="card-body">
+                      <blockquote class="blockquote mb-0 card-body">
+                    <div class="card border-primary">
+                      <div class="card-body">
+                        <h5 class="card-title">Заголовок новости</h5>
+                        <p>Текст новости</p>
+                        <button type="submit" class="btn btn-primary btn-sm">Читать далее</button>
+                      </div>
+                  </div>
 
-              <div class="col-md-6 mb-3 hoveffilblu animated zoomIn">
-                            
+                  <div class="card border-primary mt-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Заголовок новости</h5>
+                      <p>Текст новости</p>
+                      <button type="submit" class="btn btn-primary btn-sm">Читать далее</button>
+                    </div>
+                  </div>
+                  </blockquote>
+                  </div>
+                </div>
+                <div class="card border-primary m-3">
+                    <div class="card-header bg-transparent border-primary bg-primary text-white">Оплаченные курсы<i class="far ml-2 fa-bookmark"></i></div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0 card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item text-primary"><a>Название курса</a></br><button type="submit" class="btn btn-primary btn-sm">О курсе</button></li>
+                            <li class="list-group-item text-primary"><a>Название курса</a></br><button type="submit" class="btn btn-primary btn-sm">О курсе</button></li>
+                        </ul>
+                    </blockquote>
+                    </div>
+                </div>
               </div>
-
           </div>
       </section>
     </div>
